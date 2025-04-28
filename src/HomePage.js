@@ -33,7 +33,7 @@ function HomePage() {
                 className="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"
               >
                 <img
-                  src="https://picsum.photos/400/300"
+                  src={`https://picsum.photos/400/300?random=${item.id}`}
                   alt="Placeholder"
                   className="w-full h-48 object-cover"
                 />
