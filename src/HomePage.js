@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import ArtworkCard from "./components/ArtworkCard";
 
 function HomePage() {
   const [data, setData] = useState(null);
@@ -28,36 +29,7 @@ function HomePage() {
         {data ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {data.map((item) => (
-              <div
-                key={item.id}
-                className="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"
-              >
-                <img
-                  src={`https://picsum.photos/400/300?random=${item.id}`}
-                  alt="Placeholder"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-4">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                    {item.nev}
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-1">
-                    <span className="font-semibold">Alkotás Azonosító:</span>{" "}
-                    {item.alkotasAzonosito}
-                  </p>
-                  <p className="text-gray-600 text-sm mb-1">
-                    <span className="font-semibold">Kezdő Időpont:</span>{" "}
-                    {item.keletkezesKezdoIdopontjaInt}
-                  </p>
-                  <p className="text-gray-600 text-sm mb-1">
-                    <span className="font-semibold">Típus:</span> {item.tipus}
-                  </p>
-                  <p className="text-gray-600 text-sm">
-                    <span className="font-semibold">Megjelenítendő Név:</span>{" "}
-                    {item.megjelenitendoNev}
-                  </p>
-                </div>
-              </div>
+              <ArtworkCard key={item.id} item={item} />
             ))}
           </div>
         ) : (
